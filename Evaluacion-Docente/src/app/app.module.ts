@@ -8,15 +8,13 @@ import { EvaluacionComponent } from './features/evaluacion/evaluacion.component'
 import { PromedioComponent } from './features/promedio/promedio.component';
 import { ListadoComponent } from './features/listado/listado.component';
 import { BusquedaComponent } from './features/busqueda/busqueda.component';
+import { InicioComponent } from './features/inicio/inicio.component';
+import { TabsComponent } from './core/components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CursosInscritosComponent,
-    EvaluacionComponent,
-    PromedioComponent,
-    ListadoComponent,
-    BusquedaComponent
+    TabsComponent,
   ],
   imports: [
     BrowserModule,
