@@ -18,7 +18,9 @@ import { TabsComponent } from './core/components/tabs/tabs.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CursosInscritosComponent,
+    EvaluacionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

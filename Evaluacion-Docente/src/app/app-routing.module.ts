@@ -21,7 +21,7 @@ const routes: Routes = [
     component: BusquedaComponent 
   },
   {
-    path: "evaluacion",
+    path: "estudiante/evaluacion/courseid",
     component: EvaluacionComponent 
   },
   {

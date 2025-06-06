@@ -4,6 +4,8 @@
   <li *ngFor="let course of courses">
     {{ course.code }} - {{ course.name }}
     <span *ngIf="course.evaluated" style="color: green;">✔ Evaluado</span>
-    <span *ngIf="!course.evaluated" style="color: red;">✖ No evaluado</span>
+    <span *ngIf="!course.evaluated" style="color: red;">✖ No evaluado
+      <button (click)="goToEvaluation(course.id)">Evaluar</button>
+    </span>
   </li>
 </ul>
