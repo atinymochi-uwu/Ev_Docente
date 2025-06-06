@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CursosInscritosComponent } from './features/cursos-inscritos/cursos-inscritos.component';
@@ -9,18 +10,23 @@ import { PromedioComponent } from './features/promedio/promedio.component';
 import { ListadoComponent } from './features/listado/listado.component';
 import { BusquedaComponent } from './features/busqueda/busqueda.component';
 import { InicioComponent } from './features/inicio/inicio.component';
-import { TabsComponent } from './core/components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TabsComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CursosInscritosComponent,
-    EvaluacionComponent
+    EvaluacionComponent,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

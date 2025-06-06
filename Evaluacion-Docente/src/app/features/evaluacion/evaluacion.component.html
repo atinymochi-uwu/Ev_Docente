@@ -1,3 +1,22 @@
 <h2>Evaluar Curso</h2>
 
-<p>Estás evaluando el curso: {{ courseName }}</p>
+<form *ngIf="evaluationForm" [formGroup]="evaluationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nota (1 a 7):</label><br />
+    <input type="number" formControlName="nota" />
+    <div *ngIf="submitted && f['nota'].errors" style="color: red;">
+      <small *ngIf="f['nota'].errors['required']">La nota es obligatoria.</small>
+      <small *ngIf="f['nota'].errors['min'] || f['nota'].errors['max']">La nota debe estar entre 1 y 7.</small>
+    </div>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <label>Comentario:</label><br />
+    <textarea formControlName="comentario" rows="4" cols="50"></textarea>
+    <div *ngIf="submitted && f['comentario'].errors" style="color: red;">
+      <small>El comentario es obligatorio.</small>
+    </div>
+  </div>
+
+  <button type="submit" style="margin-top: 20px;">Enviar Evaluación</button>
+</form>
