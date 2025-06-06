@@ -1,0 +1,15 @@
+.home-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.button-group {
+  margin-top: 30px;
+}
+
+button {
+  padding: 10px 25px;
+  margin: 0 15px;
+  font-size: 16px;
+  cursor: pointer;
+}

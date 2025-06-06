@@ -1,1 +1,9 @@
-<p>cursos-inscritos works!</p>
+
+<h2>Cursos Inscritos</h2>
+<ul>
+  <li *ngFor="let course of courses">
+    {{ course.code }} - {{ course.name }}
+    <span *ngIf="course.evaluated" style="color: green;">✔ Evaluado</span>
+    <span *ngIf="!course.evaluated" style="color: red;">✖ No evaluado</span>
+  </li>
+</ul>
