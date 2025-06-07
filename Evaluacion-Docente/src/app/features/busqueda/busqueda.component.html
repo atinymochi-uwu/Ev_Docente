@@ -1,1 +1,61 @@
-<p>busqueda works!</p>
+<h2>Búsqueda de Evaluaciones</h2>
+
+<div style="margin-bottom: 1em;">
+  <input type="text" [(ngModel)]="searchText" placeholder="Buscar por curso, docente o código">
+  <button (click)="doSearch()">Buscar</button>
+</div>
+
+<div style="margin-bottom: 1em;">
+  <label>
+    Carrera:
+    <select [(ngModel)]="selectedCarrera">
+      <option value="">Todas</option>
+      <option value="Ingeniería">Ingeniería</option>
+      <option value="Medicina">Medicina</option>
+      <option value="Derecho">Derecho</option>
+    </select>
+  </label>
+
+  <label style="margin-left: 1em;">
+    Semestre:
+    <select [(ngModel)]="selectedSemestre">
+      <option value="">Todos</option>
+      <option value="2024-2">2024-2</option>
+      <option value="2025-1">2025-1</option>
+    </select>
+  </label>
+
+  <label style="margin-left: 1em;">
+    Nota mínima:
+    <input type="number" [(ngModel)]="notaMinima" min="1" max="7" step="0.1">
+  </label>
+</div>
+
+<!-- Resultados -->
+<div *ngIf="filteredResults.length > 0">
+  <h3>Resultados</h3>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Curso</th>
+        <th>Docente</th>
+        <th>Carrera</th>
+        <th>Semestre</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredResults">
+        <td>{{ item.course }}</td>
+        <td>{{ item.teacher }}</td>
+        <td>{{ item.carrera }}</td>
+        <td>{{ item.semestre }}</td>
+        <td>{{ item.promedio }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="searchClicked && filteredResults.length === 0">
+  <p>No se encontraron resultados.</p>
+</div>

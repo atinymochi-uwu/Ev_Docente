@@ -21,8 +21,8 @@ import { InicioComponent } from './features/inicio/inicio.component';
     AppRoutingModule,
     CursosInscritosComponent,
     EvaluacionComponent,
-    ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
