@@ -13,7 +13,8 @@ import { InicioComponent } from './features/inicio/inicio.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListadoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,20 @@
-<p>listado works!</p>
+<h2>Listado de docentes</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Docente</th>
+      <th>Curso</th>
+      <th>Semestre</th>
+      <th>Promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let teacher of teachers">
+      <td>{{ teacher.name }}</td>
+      <td>{{ teacher.course }}</td>
+      <td>{{ teacher.semester }}</td>
+      <td>{{ teacher.averageScore }}</td>
+    </tr>
+  </tbody>
+</table>

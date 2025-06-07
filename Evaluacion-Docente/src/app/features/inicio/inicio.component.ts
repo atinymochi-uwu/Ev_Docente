@@ -15,6 +15,6 @@ export class InicioComponent {
   }
 
   goToTeacher() {
-    alert('Funcionalidad de docente aún no implementada.');
+    this.router.navigate(['docente/listado']);
   }
 }

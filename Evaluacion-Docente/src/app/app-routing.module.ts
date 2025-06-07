@@ -25,7 +25,7 @@ const routes: Routes = [
     component: EvaluacionComponent 
   },
   {
-    path: "listado",
+    path: "docente/listado",
     component: ListadoComponent 
   },
   {
