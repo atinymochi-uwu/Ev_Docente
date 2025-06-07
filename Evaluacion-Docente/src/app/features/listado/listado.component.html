@@ -1,20 +1,74 @@
 <h2>Listado de docentes</h2>
 
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>Docente</th>
-      <th>Curso</th>
-      <th>Semestre</th>
-      <th>Promedio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let teacher of teachers">
-      <td>{{ teacher.name }}</td>
-      <td>{{ teacher.course }}</td>
-      <td>{{ teacher.semester }}</td>
-      <td>{{ teacher.averageScore }}</td>
-    </tr>
-  </tbody>
-</table>
+<div style="margin-bottom: 1em;">
+  <button (click)="groupBy = 'none'">Ver todos</button>
+  <button (click)="groupBy = 'course'">Agrupar por Curso</button>
+  <button (click)="groupBy = 'teacher'">Agrupar por Docente</button>
+</div>
+
+<div *ngIf="groupBy === 'course'">
+  <h3>Vista agrupada por Curso</h3>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Curso</th>
+        <th>Docentes</th>
+        <th>Semestres</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of groupedByCourse">
+        <td>{{ course.course }}</td>
+        <td>{{ course.teachers.join(', ') }}</td>
+        <td>{{ course.semesters.join(', ') }}</td>
+        <td>{{ course.average }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Vista agrupada por docente -->
+<div *ngIf="groupBy === 'teacher'">
+  <h3>Vista agrupada por Docente</h3>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Docente</th>
+        <th>Cursos</th>
+        <th>Semestres</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of groupedByTeacher">
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.courses.join(', ') }}</td>
+        <td>{{ teacher.semesters.join(', ') }}</td>
+        <td>{{ teacher.average }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Vista normal -->
+<div *ngIf="groupBy === 'none'">
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Docente</th>
+        <th>Curso</th>
+        <th>Semestre</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of teachers">
+        <td>{{ t.name }}</td>
+        <td>{{ t.course }}</td>
+        <td>{{ t.semester }}</td>
+        <td>{{ t.averageScore }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
