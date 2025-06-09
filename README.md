@@ -39,15 +39,11 @@ Cuando esté ejecutándose, abre `http://localhost:4200/` en una pestaña nueva.
 ## Cómo ejecutar el proyecto con Docker
 Este proyecto incluye un Dockerfile para compilar y servir la aplicación Angular como sitio estático.
 
-### Ejecutar por terminal
 En una terminal ejecuta lo siguiente:
 ```bash
 docker build -t evaluacion-frontend .
-docker run -p 8080:8080 evaluacion-frontend
+docker run -d -p 80:80 evaluacion-frontend
 ```
-Y abre http://localhost:8080 en una pestaña nueva.
-
-### Ejecutar en Docker Desktop
-
+Y abre http://localhost en una pestaña nueva.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.

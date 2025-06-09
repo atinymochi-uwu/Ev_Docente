@@ -10,6 +10,6 @@ RUN npm run build --prod
 
 FROM caddy:alpine
 
-COPY --from=builder /app/dist/evaluacion-docente /usr/share/caddy
+COPY --from=builder /app/dist/evaluacion-docente/browser /usr/share/caddy
 
 EXPOSE 80
