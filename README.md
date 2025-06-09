@@ -9,15 +9,25 @@ Las características dentro del proyecto incluyen:
 - Gráficos agregados por carrera y período académico
 - Búsqueda de cursos por nombre, código o docente
 
+## Requisitos
+
+- Node.js (v18 o v20)
+- Angular CLI (`npm install -g @angular/cli`)
+
 ## Cómo ejecutar el proyecto localmente (Angular CLI)
 
 ### Pasos
 
+Abre una terminal y ejecuta los siguientes comandos:
 ```bash
 # Clona el repositorio
 git clone https://github.com/atinymochi-uwu/Ev_Docente/tree/main/Evaluacion-Docente
 cd Evaluacion-Docente
+```
+O descarga el archivo con el botón "Code", extráelo en una carpeta y abre una terminal en esa carpeta.
 
+Luego, ejecuta los comandos:
+```bash
 # Instala dependencias
 npm install
 
@@ -25,9 +35,19 @@ npm install
 ng serve
 ```
 Cuando esté ejecutándose, abre `http://localhost:4200/` en una pestaña nueva.
-## Requisitos
 
-- Node.js (v18 o v20)
-- Angular CLI (`npm install -g @angular/cli`)
+## Cómo ejecutar el proyecto con Docker
+Este proyecto incluye un Dockerfile para compilar y servir la aplicación Angular como sitio estático.
+
+### Ejecutar por terminal
+En una terminal ejecuta lo siguiente:
+```bash
+docker build -t evaluacion-frontend .
+docker run -p 8080:8080 evaluacion-frontend
+```
+Y abre http://localhost:8080 en una pestaña nueva.
+
+### Ejecutar en Docker Desktop
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
