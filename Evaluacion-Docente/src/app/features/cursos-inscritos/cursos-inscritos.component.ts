@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import { environment } from '../../../environments/environment';
 import { EvaluationService } from '../../services/evaluation.service';
 
 @Component({
@@ -25,10 +24,5 @@ export class CursosInscritosComponent implements OnInit{
     this.router.navigate(['/estudiante/evaluacion', courseId]);
   }
 
-  ngOnInit(): void {
-    this.evalService.getHello().subscribe(
-      res => console.log('Respuesta Django:', res),
-      err => console.error('Error al conectar con backend:', err)
-    );
-  }
+  ngOnInit(): void {}
 }
