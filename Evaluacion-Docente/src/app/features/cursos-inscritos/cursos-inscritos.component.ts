@@ -17,7 +17,6 @@ export class CursosInscritosComponent implements OnInit{
 
   constructor(
     private router: Router,
-    private evalService: EvaluationService
   ) {}
 
   goToEvaluation(courseId: number) {
