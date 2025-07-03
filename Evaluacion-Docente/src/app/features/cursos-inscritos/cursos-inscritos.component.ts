@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import { EvaluationService } from '../../services/evaluation.service';
 
 @Component({
   imports: [CommonModule],

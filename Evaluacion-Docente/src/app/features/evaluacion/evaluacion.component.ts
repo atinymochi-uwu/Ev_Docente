@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { EvaluationService } from '../../services/evaluation.service';
-
 
 @Component({
   selector: 'app-evaluacion',
   templateUrl: './evaluacion.component.html',
-  imports: [CommonModule,  ReactiveFormsModule],
   styleUrl: './evaluacion.component.css',
+  imports: [CommonModule,  ReactiveFormsModule]
 })
 
 export class EvaluacionComponent implements OnInit {
@@ -17,24 +15,19 @@ export class EvaluacionComponent implements OnInit {
   courseName!: string;
   evaluationForm!: FormGroup;
   submitted = false;
-  evaluaciones: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder,
-    private router: Router,
-    private evaluationService: EvaluationService
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.obtenerEvaluacionesHistoricas();
-  }
-
-  obtenerEvaluacionesHistoricas(): void {
-    this.evaluationService.buscarEvaluaciones({ ano: 2024, semestre: 1 })
-      .subscribe(data => {
-        this.evaluaciones = data;
-      });
+    this.courseId = Number(this.route.snapshot.paramMap.get('courseId'));
+    this.courseName = String(this.route.snapshot.paramMap.get('courseName'));
+    this.evaluationForm = this.fb.group({
+      nota: [null, [Validators.required, Validators.min(1), Validators.max(7)]],
+      comentario: ['', Validators.required]
+    });
   }
 
   get f() {
@@ -56,11 +49,5 @@ export class EvaluacionComponent implements OnInit {
 
     console.log('Evaluación enviada:', data);
     alert('¡Evaluación enviada con éxito!');
-    this.router.navigate(["estudiante/cursosinscritos"])
-
-    this.evaluationService.postEvaluacion(data).subscribe({
-    next: res => console.log('Evaluación enviada', res),
-    error: err => console.error('Error al enviar evaluación', err)
-  });
   }
 }
