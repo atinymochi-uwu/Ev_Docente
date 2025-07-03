@@ -57,5 +57,10 @@ export class EvaluacionComponent implements OnInit {
     console.log('Evaluación enviada:', data);
     alert('¡Evaluación enviada con éxito!');
     this.router.navigate(["estudiante/cursosinscritos"])
+
+    this.evaluationService.postEvaluacion(data).subscribe({
+    next: res => console.log('Evaluación enviada', res),
+    error: err => console.error('Error al enviar evaluación', err)
+  });
   }
 }
