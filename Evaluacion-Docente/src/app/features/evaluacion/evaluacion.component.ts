@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +18,8 @@ export class EvaluacionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -48,6 +49,6 @@ export class EvaluacionComponent implements OnInit {
     };
 
     console.log('Evaluación enviada:', data);
-    alert('¡Evaluación enviada con éxito!');
+    this.router.navigate(["estudiante/cursosinscritos"])
   }
 }
