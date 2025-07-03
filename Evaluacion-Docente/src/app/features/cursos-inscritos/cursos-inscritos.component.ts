@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import { environment } from '../../../environments/environment';
+import { EvaluationService } from '../../services/evaluation.service';
 
 @Component({
   imports: [CommonModule],
@@ -14,11 +16,19 @@ export class CursosInscritosComponent implements OnInit{
     { id: 2, code: 'MA201', name: 'Cálculo II', evaluated: true }
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private evalService: EvaluationService
+  ) {}
 
   goToEvaluation(courseId: number) {
     this.router.navigate(['/estudiante/evaluacion', courseId]);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.evalService.getHello().subscribe(
+      res => console.log('Respuesta Django:', res),
+      err => console.error('Error al conectar con backend:', err)
+    );
+  }
 }
