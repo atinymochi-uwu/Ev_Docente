@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import Estudiante, Docente, Curso, Evaluacion
 
-# Register your models here.
+admin.site.register([Estudiante, Docente, Curso, Evaluacion])
