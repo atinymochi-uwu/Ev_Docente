@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {CursoService} from '../../services/curso.service';
 
 @Component({
   imports: [CommonModule],
