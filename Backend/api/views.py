@@ -43,7 +43,6 @@ class EvaluacionViewSet(viewsets.ModelViewSet):
     queryset = Evaluacion.objects.all()
     serializer_class = EvaluacionSerializer
 
-    # Ejemplo: /api/evaluaciones/historico/?estudiante_id=1&anio=2024&semestre=1
     @action(detail=False, methods=['get'])
     def historico(self, request):
         estudiante_id = request.query_params.get('estudiante_id')
