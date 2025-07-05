@@ -35,6 +35,7 @@ class Curso(models.Model):
     nombre = models.CharField(max_length=100)
     codigo = models.CharField(max_length=20)
     docente = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='cursos_dictados')
+    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.codigo} - {self.nombre}'
