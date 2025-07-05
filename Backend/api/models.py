@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Usuario(models.Model):
     PERFIL_CHOICES = (
@@ -31,10 +32,11 @@ class Inscripcion(models.Model):
 
 
 class Evaluacion(models.Model):
-    inscripcion = models.OneToOneField(Inscripcion, on_delete=models.CASCADE)
-    nota = models.DecimalField(max_digits=3, decimal_places=1)
+    inscripcion = models.OneToOneField('Inscripcion', on_delete=models.CASCADE, related_name='evaluacion')
+    nota = models.DecimalField(max_digits=3, decimal_places=1,
+                               validators=[MinValueValidator(1.0), MaxValueValidator(7.0)])
     comentario = models.TextField()
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Evaluación de {self.inscripcion.estudiante.nombre} en {self.inscripcion.curso.nombre}'
+        return f'{self.inscripcion.estudiante.nombre} - {self.inscripcion.curso.nombre}: {self.nota}'
