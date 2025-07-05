@@ -19,7 +19,8 @@ export class EvaluacionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,5 +51,6 @@ export class EvaluacionComponent implements OnInit {
 
     console.log('Evaluación enviada:', data);
     alert('¡Evaluación enviada con éxito!');
+    this.router.navigate(["estudiante/cursosinscritos"])
   }
 }
