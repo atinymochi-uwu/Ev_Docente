@@ -1,4 +1,6 @@
 <h2>Evaluar Curso</h2>
+<p>ID curso: {{ courseId }}</p>
+
 
 <form *ngIf="evaluationForm" [formGroup]="evaluationForm" (ngSubmit)="onSubmit()">
   <div>

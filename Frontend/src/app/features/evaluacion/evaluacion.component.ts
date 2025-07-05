@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -19,9 +19,7 @@ export class EvaluacionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder,
-    private router: Router,
-    private evaluationService: EvaluationService
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -51,19 +49,6 @@ export class EvaluacionComponent implements OnInit {
     };
 
     console.log('Evaluación enviada:', data);
-    this.router.navigate(["estudiante/cursosinscritos"])
-  }
-
-  evaluar(inscripcionId: number, nota: number, comentario: string) {
-  if (nota < 1 || nota > 7 || !comentario.trim()) {
-    alert('La nota debe estar entre 1 y 7 y el comentario no puede estar vacío.');
-    return;
-  }
-
-  this.evaluationService.evaluarCurso(inscripcionId, { nota, comentario })
-    .subscribe({
-      next: () => alert('Evaluación enviada correctamente'),
-      error: () => alert('Error al enviar evaluación')
-    });
+    alert('¡Evaluación enviada con éxito!');
   }
 }
